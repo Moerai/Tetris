@@ -60,4 +60,5 @@ int main()
 	endwin();
 	return 0;
 }
+//출처:blog.naver.com/lvtlvt/80054663689
 
