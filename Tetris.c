@@ -3,16 +3,31 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include<locale.h>
+/*Todo list*/
 
+/*블럭 생성*/
+void InitNewBlock(char blockInfo[][4]);
+/*블럭을 출력*/
 void ShowBlock(char blockInfo[][4]);
+/*블럭을 삭제*/
+void DeleteBlock(char blockInfo[][4]);
+/*블럭을 내림*/
+void DownBlock(char blockInfo[][4]);
+/*블럭을 바꿈*/
+/*블럭을 멈춤*/
+/*가득찬 줄 삭제*/
+
+/*맵그리기*/
+void DrowMap(char map[23][27]);
 
 int point_x,point_y;
 int x,y;
+char map[23][27];
 char blockModel[][4][4] =
-{
+{//Idia 4차원 배열을 이용하면 호출할 때 좀 더 용이하지 않을까??
 	/*첫 번째 블럭0,1,2,3
 	  ■
-  	  ■■■   */
+  	  ■ ■ ■   */
 	{
 	  {0,0,0,0},
 	  {1,0,0,0},
@@ -38,8 +53,8 @@ char blockModel[][4][4] =
 	  {0,1,1,0}
 	},
 	/*두 번째 블럭4,5,6,7
-	    ■
-	  ■■■    */
+	      ■
+	  ■ ■ ■    */
 	{
 	  {0,0,0,0},
 	  {0,0,1,0},
@@ -94,8 +109,8 @@ char blockModel[][4][4] =
 	  {0,0,0,0}
 	},
 	/*네 번째 블럭12,13
-	  ■■
-	   ■■  */
+	  ■ ■
+	    ■ ■  */
 	{
 	  {0,0,0,0},
 	  {0,1,1,0},
@@ -109,8 +124,8 @@ char blockModel[][4][4] =
 	  {0,0,0,0}
 	},
 	/*다섯 번째 블럭14,15
-	   ■■
-	  ■■  */
+	   ■ ■
+	 ■ ■  */
 	{
 	  {0,0,0,0},
 	  {0,0,1,1},
@@ -124,8 +139,8 @@ char blockModel[][4][4] =
 	  {0,0,0,0}
 	},
 	/*여섯 번째 블럭16,17,18,19
-	  ■
-	 ■■■  */
+	   ■
+	 ■ ■ ■  */
 	{
 	  {0,1,0,0},
 	  {1,1,1,0},
@@ -151,8 +166,8 @@ char blockModel[][4][4] =
 	  {0,0,1,0}
 	},
 	/*일곱 번째 블럭 20
-	  ■■
-	  ■■
+	  ■ ■
+	  ■ ■
 	*/
 	{
 	  {0,0,0,0},
